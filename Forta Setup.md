@@ -1,20 +1,13 @@
-# Forta-Node-Setup-Guide
-**Forta, Merkezi Olmayan Web Stres Testini Duyurdu!** 
-- **Güçlendirme, yüksek bant genişliğine sahip merkezi olmayan ağı stres testine tabi tutacak, dünyanın dört bir yanından katılımı teşvik edecek ve Forta topluluğunun dünyanın ilk gerçek zamanlı merkezi olmayan izleme ağının başlatılmasına hazırlanmasına yardımcı olacaktır.**
-
-**Katılım Şartları:**
-- **Resmi Discordlarına katılın**
-- **Formu doldurun**
-- **KYC'yi TokenSoft üzerinden yapın. (KYC için mail gelmesi gerek)**
+# Forta Node Taşıma Rehberi
+telegram: @eozdemirok
 
 **Ödüller**
-- **1. hafta - 250 000 FORT** 
-- **2. hafta - 250 000** 
-- **FORT toplam arz 1.000.000.000'dır, 2 haftalık bir node için ödül toplam miktarın sadece %0.05'idir + genel listeden sadece 200 doğrulayıcı seçilecektir, bu yüzden kendi kararınızı verin.**
-
+- **Haftalık 400.000 fort paylaştırılacaktır
+- **FORT toplam arz 1.000.000.000'dır, 
+- 
 **Sistem Gereksinimleri**
 
-- **4 CPU 16 RAM 100+ SSD Ubuntu 20.04**
+- **4 CPU 16 RAM 100+ SSD Ubuntu 20.04(daha düşük kurmak isteyenler için en az 8 ram zorunluluğu vardır)**
 
 **Kurulum**
 
@@ -107,46 +100,8 @@ Successfully initialized at /root/.forta
 - Please enable it for the chain ID in your config by doing 'forta register --owner-address <your_owner_wallet_address>'.
 ```
 
-- **Scanner address yazan yerde sizde çıkan adrese Tokensofta kayıtlı metamask adresinizden 0.1 Matic gönderin**
+- **Taşıma işlemi yaptığımız için matic göndermenize gerek yoktur**
 
-**Alchemy**
-
-- **https://www.alchemy.com/  adresinden bir profil oluşturun.**
-- **Create APP yerinden Polygon Mainnet seçerek devam edin.** 
-- **Anasayfaya gelerek View Detals kısmından View Key e basarak oradaki HTTP Polygon Mainnet linkini kopyalayın.**
-
-**Şu koddan devam edin**
-```
-nano /root/.forta/config.yml
-```
-- **config dosyasının içindekileri CTRL-K ile silin**  
-
-```
-chainId: 137
-
-scan:
-  jsonRpc:
-    url: <buraya alchemyden kopyaladığınız linki girin>
-
-trace:
-  enabled: false
-```
-  
-  - **Kodu girdikten sonra CTRL-X Yapıp Sonra Y enter yaparak dosyayı kaydedin.**
-  
-
-- **Aşağıdaki kodu girdiğinizde**
-```
-forta register --owner-address <metamask adresiniz> --passphrase <şifreniz>
-```
-- **Şu çıktıyı almalısınız.**
-```
-Sending a transaction to register your scan node to chain 1...
-Successfully sent the transaction!
-
-Please ensure that https://polygonscan.com/tx/0xc61929753a2d25f53c7c18d731d205e1f47e767206da3fe28266e528fa10041f succeeds before you do 'forta run'. This can take a while depending on the network load.
-```
-```
 systemctl enable forta
 ```
 ```
@@ -176,39 +131,23 @@ WantedBy=multi-user.target
 ```
  - **Yukarıdaki kodu yapıştırdıktan sonra CTRL-X Yapıp Sonra Y enter yaparak dosyayı kaydedin.**
 
-**Node Görüntüleme**
+**Windows için winscp programı ile yada bilgisayarınıza uygun program ile sunucumuza bağlanıyoruz ve .forta klasörünü silip eski yedeklediğimiz klasörü yüklüyoruz(ctrl alt h / gizli dosyaları gösterir)**
+
+- **tekrar terminale bağlanarak aşağıdaki kodların hepsini yapıştırın**
 
 ```
+chmod -R +x .forta/*
 systemctl daemon-reload
-```
-```
 systemctl restart forta
-```
-```
 systemctl status forta
 ```
-
-- **Şu çıktıyı almalısınız.**
+- **1 dakika sonra aşağıdaki komutu girerek kontrol edin**
 
 ```
-● forta.service - Forta
-     Loaded: loaded (/lib/systemd/system/forta.service; enabled; vendor preset: enabled)
-     Active: active (running) since Wed 2022-04-27 17:48:35 UTC; 21s ago
-   Main PID: 18113 (forta)
-      Tasks: 9 (limit: 9508)
-     Memory: 297.9M
-     CGroup: /system.slice/forta.service
-             └─18113 /usr/bin/forta run
+forta status
 ```
 
-- **Bundan sonra https://dashboard.alchemyapi.io/ buradan nodeunuzu kontrol edebilirsiniz.**
-
-**Son Olarak Size gönderilecek olan formu doldurun.**
-- **1) metamask adresiniz**
-- **2)Node adresiniz (tarayıcı adresi)**
-- **3)Tam adınız.**
-
-**End**
+-Ömer Can hocamıza ve testnetrun ekibine teşekkürler
 
 - **https://t.me/testnetrun**
 
@@ -219,12 +158,6 @@ systemctl status forta
 - **https://stake.testnet.run/**
 
 - **https://twitter.com/testnetrun**
-
-
-
-
-
-
 
 
 
